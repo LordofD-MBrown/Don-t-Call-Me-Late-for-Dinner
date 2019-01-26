@@ -96,13 +96,11 @@ public class PlayerMovementBeta : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.name);
-        if (other.gameObject.name == "Door to Overworld")
+        if (other.gameObject.name == "Door to Overworld(Home)")
         {
-            Debug.Log(other.gameObject.name);
             DontDestroyOnLoad(player);            
             SceneManager.LoadScene("Overworld");
-            player.transform.Translate(5f, 1.1f, 0f);
-        }
-        
+            player.transform.Translate(5f, 1f, 0f);
+        }     
     }
 }
