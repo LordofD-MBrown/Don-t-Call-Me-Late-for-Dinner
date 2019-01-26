@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _speed = 20f;
 
-    [SerializeField]
-    private float _jumpForce = 10f;
+    [SerializeField] private float _jumpForce = 10f;
 
     [SerializeField] private float _downRaycastDistance = 1.2f;
 
     public LayerMask GroundLayer;
-    private SpriteRenderer spriteRenderer;
 
     private bool _grounded = false;
 
@@ -29,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
