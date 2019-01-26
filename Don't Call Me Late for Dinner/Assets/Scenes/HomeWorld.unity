@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 589742541}
   m_Layer: 0
   m_Name: Dad
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -588,7 +588,7 @@ GameObject:
   - component: {fileID: 1341984779}
   m_Layer: 0
   m_Name: Mom(Platform)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 1553625531}
   m_Layer: 0
   m_Name: Mom(TopDown)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,7 +1065,7 @@ GameObject:
   - component: {fileID: 1852055920}
   m_Layer: 0
   m_Name: Son
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
