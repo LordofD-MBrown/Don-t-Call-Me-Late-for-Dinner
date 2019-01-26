@@ -11,4 +11,9 @@ public class TitleScreenScript : MonoBehaviour
         SceneManager.LoadScene("HomeWorld");
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }
