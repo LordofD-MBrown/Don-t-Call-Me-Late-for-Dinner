@@ -8,6 +8,10 @@ TagManager:
   - Jump Map
   - Home
   - Home Exit
+  - School
+  - Work
+  - HorizontalCar
+  - VerticalCar
   layers:
   - Default
   - TransparentFX
