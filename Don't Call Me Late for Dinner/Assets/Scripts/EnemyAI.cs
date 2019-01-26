@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BullyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     float moveX;
     public float speed = 0;
