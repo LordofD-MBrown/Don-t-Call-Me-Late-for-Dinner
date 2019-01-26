@@ -95,7 +95,6 @@ public class PlayerMovementBeta : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "Door to Overworld(Home)")
         {
             DontDestroyOnLoad(player);            

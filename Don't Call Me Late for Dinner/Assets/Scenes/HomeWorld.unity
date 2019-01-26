@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 589742542}
   - component: {fileID: 589742541}
   - component: {fileID: 589742545}
+  - component: {fileID: 589742546}
   m_Layer: 0
   m_Name: Dad
   m_TagString: Player
@@ -427,6 +428,18 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &589742546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589742539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04b9873f0ce7e2468c349da9e067779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 21.1, y: 4.5, z: -10.10769}
 --- !u!1 &662127960
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,9 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9a8e3174df4f649bcb6e840ca15654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dadHealth: 0
-  sonHealth: 0
-  momHealth: 0
+  dadHealth: 3
+  sonHealth: 1
+  momHealth: 2
   time: 300
 --- !u!114 &1021810938
 MonoBehaviour:
@@ -1232,6 +1245,7 @@ GameObject:
   - component: {fileID: 1852055921}
   - component: {fileID: 1852055920}
   - component: {fileID: 1852055925}
+  - component: {fileID: 1852055926}
   m_Layer: 0
   m_Name: Son
   m_TagString: Player
@@ -1379,6 +1393,18 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &1852055926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852055919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f52cbe487d6494898e491830e0f294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPosition: {x: 222, y: 11, z: -10.10769}
 --- !u!1 &2067786439
 GameObject:
   m_ObjectHideFlags: 0
