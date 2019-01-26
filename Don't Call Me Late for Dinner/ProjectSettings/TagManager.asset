@@ -16,6 +16,8 @@ TagManager:
   - HorizontalCarReset
   - Coffee
   - Oven
+  - Lego
+  - Ladder
   layers:
   - Default
   - TransparentFX
