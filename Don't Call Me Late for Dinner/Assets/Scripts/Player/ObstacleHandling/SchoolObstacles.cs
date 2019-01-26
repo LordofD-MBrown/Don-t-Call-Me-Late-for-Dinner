@@ -9,7 +9,7 @@ public class SchoolObstacles : MonoBehaviour
     GameObject player;
     GameObject son;
 
-    public Vector3 startingPosition = new Vector3 (222f, 11f, -10.10769f);
+    public Vector3 startingPosition = new Vector3 (0f, 0f, 0f);
     Vector3 sonStartingPosition = Vector3.zero;
 
     // Use this for initialization
