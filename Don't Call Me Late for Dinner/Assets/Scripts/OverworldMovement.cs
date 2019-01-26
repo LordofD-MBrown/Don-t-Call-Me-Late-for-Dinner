@@ -7,11 +7,6 @@ public class OverworldMovement : MonoBehaviour
     public float speed = 20f;
     public Vector2 move = Vector2.zero;
 	public Rigidbody2D rb2D;
-    void Start()
-    {
-		
-    }
-
 
     void Update()
     {
@@ -20,34 +15,35 @@ public class OverworldMovement : MonoBehaviour
 
     void movePlayer()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("holding down 'W'");
-            Vector2 moveInput = new Vector2(0f, 1f);
-            move = moveInput.normalized * speed;
-			rb2D.velocity = move;
+            move = new Vector2(0f, speed);
+			rb2D.velocity += move;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("holding down 'S'");
-            Vector2 moveInput = new Vector2(0f, -1f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
+            move = new Vector2(0f, -speed);
+            rb2D.velocity += move;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-			if (Input.GetKey(KeyCode.W)
-            Debug.Log("holding down 'A'");
-            Vector2 moveInput = new Vector2(-1f, 0f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
+            move= new Vector2(-speed, 0f);
+            rb2D.velocity += move;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            Debug.Log("holding down 'D'");
-            Vector2 moveInput = new Vector2(1f, 0f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
+            move = new Vector2(speed, 0f);
+            rb2D.velocity += move;
         }
+		if(rb2D.velocity != Vector2.zero)
+		{
+			if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+				rb2D.velocity += new Vector2(0f, -rb2D.velocity.y);
+			if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+				rb2D.velocity += new Vector2(-rb2D.velocity.x, 0f);
+			
+		}
+		
+		
     }
 }
