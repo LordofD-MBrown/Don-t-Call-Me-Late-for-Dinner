@@ -3,50 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OverworldMovement : MonoBehaviour
-{
-    public float speed = 20f;
-    public Vector2 move = Vector2.zero;
-	public Rigidbody2D rb2D;
-    void Start()
-    {
-		
-    }
-
-
-    void Update()
-    {
-        movePlayer();
-    }
-
-    void movePlayer()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            Debug.Log("holding down 'W'");
-            Vector2 moveInput = new Vector2(0f, 1f);
-            move = moveInput.normalized * speed;
-			rb2D.velocity = move;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            Debug.Log("holding down 'S'");
-            Vector2 moveInput = new Vector2(0f, -1f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("holding down 'A'");
-            Vector2 moveInput = new Vector2(-1f, 0f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Debug.Log("holding down 'D'");
-            Vector2 moveInput = new Vector2(1f, 0f);
-            move = moveInput.normalized * speed;
-            rb2D.velocity = move;
-        }
-    }
+{ 
+	public float speed; 
+	private float input; 
+	public float gravity; 
+	private Rigidbody2D rb; 
+	// Use this for initialization 
+	void Start () 
+	{ 
+		rb = GetComponent<Rigidbody2D>(); 
+	}
+// Update is called once per frame 
+	void LateUpdate () 
+	{ 
+		moveLateral(); 
+		moveVertical(); 
+	} 
+	private void moveLateral() 
+	{ 
+		input = Input.GetAxisRaw("Horizontal"); 
+		rb.velocity = new Vector2(input * speed, rb.velocity.y); 
+	} 
+	private void moveVertical() 
+	{ 
+		input = Input.GetAxisRaw("Vertical");
+		rb.velocity = new Vector2(rb.velocity.x, input * speed); 
+	} 
 }
