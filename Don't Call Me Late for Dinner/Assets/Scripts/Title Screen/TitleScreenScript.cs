@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GUI_Interactions : MonoBehaviour
+public class TitleScreenScript : MonoBehaviour
 {
-    public void StartButton()
+    public void StartGame()
     {
-        SceneManager.LoadScene("Avery - Test Scene");
+        SceneManager.LoadScene("HomeWorld");
     }
+
 }
