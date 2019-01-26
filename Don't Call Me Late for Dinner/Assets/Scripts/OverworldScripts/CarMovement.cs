@@ -30,9 +30,9 @@ public class CarMovement : MonoBehaviour {
 	void carUpdate()
 	{
 		if(this.gameObject.tag == "VerticalCar")
-			transform.position += (new Vector3 (0, 1f, 0) * speed);
+			transform.position += (new Vector3 (0, 1f, 0) * speed * Time.deltaTime);
 		if(this.gameObject.tag == "HorizontalCar")
-			transform.position += (new Vector3 (1f, 0, 0) * speed);
+			transform.position += (new Vector3 (1f, 0, 0) * speed * Time.deltaTime);
 	}
 	public void OnTriggerEnter2D(Collider2D col)
 	{
