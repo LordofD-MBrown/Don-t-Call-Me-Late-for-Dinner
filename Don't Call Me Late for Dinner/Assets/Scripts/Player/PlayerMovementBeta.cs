@@ -18,11 +18,20 @@ public class PlayerMovementBeta : MonoBehaviour
     public LayerMask GroundLayer;
     private bool _grounded = false;
     private Rigidbody2D _rigidBody2D;
+
     GameObject player;
+    GameObject dad;
+    GameObject momPlatform;
+    GameObject momTopDown;
+    GameObject son;
 
     // Use this for initialization
     void Start()
     {
+        dad = GameObject.Find("Dad");
+        momPlatform = GameObject.Find("Mom(Platform)");
+        momTopDown = GameObject.Find("Mom(TopDown)");
+        son = GameObject.Find("Son");
         player = GameObject.Find("Player");
     }
 
@@ -90,8 +99,10 @@ public class PlayerMovementBeta : MonoBehaviour
         if (other.gameObject.name == "Door to Overworld")
         {
             Debug.Log(other.gameObject.name);
-            DontDestroyOnLoad(player);
-            SceneManager.LoadScene("Nathan - Test Scene");
-            player.transform.
+            DontDestroyOnLoad(player);            
+            SceneManager.LoadScene("Overworld");
+            player.transform.Translate(5f, 1.1f, 0f);
+
+        }
     }
 }

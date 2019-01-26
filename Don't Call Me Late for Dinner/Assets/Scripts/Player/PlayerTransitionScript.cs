@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 public class PlayerTransitionScript : MonoBehaviour {
 
     GameObject dad;
-    GameObject mom;
+    GameObject momPlatform;
+    GameObject momTopDown;
     GameObject son;
 
 	// Use this for initialization
 	void Start ()
     {
         dad = GameObject.Find("Dad");
-        mom = GameObject.Find("Mom");
+        momPlatform = GameObject.Find("Mom(Platform)");
+        momTopDown = GameObject.Find("Mom(TopDown)");
         son = GameObject.Find("Son");
     }
 	
@@ -27,19 +29,23 @@ public class PlayerTransitionScript : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name == "HomeWorld")
         {
-            mom.SetActive(true);
+            momPlatform.SetActive(true);
+            momTopDown.SetActive(false);
             dad.SetActive(false);
             son.SetActive(false);
+
         }
-        else if (SceneManager.GetActiveScene().name == "Nathan - Test Scene")
+        else if (SceneManager.GetActiveScene().name == "Overworld")
         {
-            mom.SetActive(true);
+            momPlatform.SetActive(false);
+            momTopDown.SetActive(true);
             dad.SetActive(false);
             son.SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "WorkWorld")
         {
-            mom.SetActive(false);
+            momPlatform.SetActive(false);
+            momTopDown.SetActive(false);
             dad.SetActive(true);
             son.SetActive(false);
         }
