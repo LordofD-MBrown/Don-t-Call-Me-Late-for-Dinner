@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Collision Map
   - Jump Map
+  - Home
+  - Home Exit
+  - School
+  - Work
+  - HorizontalCar
+  - VerticalCar
+  - VerticalCarReset
+  - HorizontalCarReset
+  - Coffee
+  - Oven
   layers:
   - Default
   - TransparentFX
@@ -51,4 +61,7 @@ TagManager:
     locked: 0
   - name: Boundaries
     uniqueID: 2483697181
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1711269737
     locked: 0
