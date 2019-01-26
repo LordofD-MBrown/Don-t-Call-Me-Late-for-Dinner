@@ -13271,7 +13271,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1147092461}
-        m_MethodName: StartGame
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17766,6 +17766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  player: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!61 &793797352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22438,6 +22440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  player: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!61 &1050751030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28862,6 +28866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  player: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!61 &1327644885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -43620,6 +43626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  player: {fileID: 0}
+  pc: {fileID: 0}
 --- !u!61 &1883023332
 BoxCollider2D:
   m_ObjectHideFlags: 0
