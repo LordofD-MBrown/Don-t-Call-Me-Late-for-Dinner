@@ -55,12 +55,12 @@ public class PlayerMovementBeta : MonoBehaviour
         var horizontalInput = Input.GetAxisRaw("Horizontal");
 
         // Move Player
-        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
+        _rigidBody2D.velocity = new Vector2(horizontalInput * _speed, _rigidBody2D.velocity.y);
         if (IsGrounded() && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             Jump();
 
     }
-
+    
 
 
     bool IsGrounded()
