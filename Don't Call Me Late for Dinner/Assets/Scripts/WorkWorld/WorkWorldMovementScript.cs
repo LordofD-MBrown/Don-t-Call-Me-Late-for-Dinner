@@ -1,50 +1,88 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkWorldMovementScript : MonoBehaviour {
 
-    public float speed = 20f;
-    public float jumpForce = 10f;
-    public float gravity = 30f;
-    public Vector2 move = Vector2.zero;
-    Rigidbody2D player;
-    Collider2D jumpMap;
-    Collider2D collisionMap;
+
+public class WorkWorldMovementScript : MonoBehaviour
+{
+    [SerializeField]
+    private float _speed = 20f;
+    [SerializeField]
+    private float _jumpForce = 10f;
+    [SerializeField]
+    private float _downRaycastDistance = 1.2f;
+
+
+
+    public LayerMask GroundLayer;
+    private bool _grounded = false;
+    private Rigidbody2D _rigidBody2D;
+
+    // Use this for initialization
     void Start()
     {
-        player = gameObject.GetComponent<Rigidbody2D>();
-        collisionMap = GameObject.FindGameObjectWithTag("Collision Map").GetComponent<Collider2D>();
-        jumpMap = GameObject.FindGameObjectWithTag("Jump Map").GetComponent<Collider2D>();
+
     }
+
+    void Awake()
+    {
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+
     void Update()
     {
-        movePlayer();
+        MovePlayer();
     }
-    void movePlayer()
+
+    void MovePlayer()
     {
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && player.IsTouching(jumpMap))
-        {
-            Vector2 moveInput = new Vector2(0f, 1f);
-            move = moveInput.normalized * jumpForce;
-            player.MovePosition(player.position + move * Time.fixedDeltaTime);
-        }
-        //Move Left
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            Vector2 moveInput = new Vector2(-1f, 0f);
-            move = moveInput.normalized * speed;
-            player.MovePosition(player.position + move * Time.fixedDeltaTime);
-        }
-        //Move Right
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            Vector2 moveInput = new Vector2(1f, 0f);
-            move = moveInput.normalized * speed;
-            player.MovePosition(player.position + move * Time.fixedDeltaTime);
-        }
+        _rigidBody2D.isKinematic = false;
+
+        // Grabbing the User input vectors
+        var horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        // Move Player
+        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.W))
+            Jump();
+
     }
 
 
+
+    bool IsGrounded()
+    {
+        Vector2 position = transform.position;
+        var direction = Vector2.down;
+        var distance = 1.2f;
+        var hit = Physics2D.Raycast(position, direction, _downRaycastDistance, GroundLayer);
+
+        if (hit.collider != null)
+        { 
+            return true;
+        }
+
+        return false;
+
+    }
+
+
+
+    void Jump()
+    {
+        Debug.Log("Made it to jump();");
+        if (!IsGrounded())
+        {
+            return;
+        }
+
+        else
+        {
+            _rigidBody2D.velocity = Vector2.up * _jumpForce;
+        }
+    }
 }

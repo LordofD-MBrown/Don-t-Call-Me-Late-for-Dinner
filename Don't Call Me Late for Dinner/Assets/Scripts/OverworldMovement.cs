@@ -36,7 +36,6 @@ public class OverworldMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-			if (Input.GetKey(KeyCode.W)
             Debug.Log("holding down 'A'");
             Vector2 moveInput = new Vector2(-1f, 0f);
             move = moveInput.normalized * speed;
