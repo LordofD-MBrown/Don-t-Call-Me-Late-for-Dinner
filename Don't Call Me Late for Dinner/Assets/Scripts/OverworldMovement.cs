@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class OverworldMovement : MonoBehaviour
 {
     public float speed = 20f;
-    public float jumpForce = 10f;
-    public float gravity = 30f;
-    public Vector3 move = Vector3.zero;
-    // Use this for initialization
+    public Vector2 move = Vector2.zero;
+	public Rigidbody2D rb2D;
     void Start()
     {
-     
+		
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         movePlayer();
@@ -25,30 +23,31 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             Debug.Log("holding down 'W'");
-            Vector3 moveInput = new Vector3(0f, 1f, 0f);
+            Vector2 moveInput = new Vector2(0f, 1f);
             move = moveInput.normalized * speed;
-            transform.position += move * Time.deltaTime;
+			rb2D.velocity = move;
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             Debug.Log("holding down 'S'");
-            Vector3 moveInput = new Vector3(0f, -1f, 0f);
+            Vector2 moveInput = new Vector2(0f, -1f);
             move = moveInput.normalized * speed;
-            transform.position += move * Time.deltaTime;
+            rb2D.velocity = move;
         }
         if (Input.GetKey(KeyCode.A))
         {
+			if (Input.GetKey(KeyCode.W)
             Debug.Log("holding down 'A'");
-            Vector3 moveInput = new Vector3(-1f, 0f, 0f);
+            Vector2 moveInput = new Vector2(-1f, 0f);
             move = moveInput.normalized * speed;
-            transform.position += move * Time.deltaTime;
+            rb2D.velocity = move;
         }
         if (Input.GetKey(KeyCode.D))
         {
             Debug.Log("holding down 'D'");
-            Vector3 moveInput = new Vector3(1f, 0f, 0f);
+            Vector2 moveInput = new Vector2(1f, 0f);
             move = moveInput.normalized * speed;
-            transform.position += move * Time.deltaTime;
+            rb2D.velocity = move;
         }
     }
 }
