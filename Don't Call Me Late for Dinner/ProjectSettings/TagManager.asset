@@ -15,6 +15,8 @@ TagManager:
   - VerticalCarReset
   - HorizontalCarReset
   - Coffee
+  - Work_ElevatorLeft
+  - Work_ElevatorRight
   layers:
   - Default
   - TransparentFX
