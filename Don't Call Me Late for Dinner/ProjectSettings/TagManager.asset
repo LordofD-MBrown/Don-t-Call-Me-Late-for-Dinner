@@ -3,20 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Collision Map
-  - Jump Map
-  - Home
-  - Home Exit
-  - School
-  - Work
-  - HorizontalCar
-  - VerticalCar
-  - VerticalCarReset
-  - HorizontalCarReset
-  - Coffee
-  - Work_ElevatorLeft
-  - Work_ElevatorRight
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -26,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - 
   - 
   - 
   - 
@@ -53,13 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BackGround
-    uniqueID: 930417779
-    locked: 0
-  - name: Player
-    uniqueID: 2867086571
-    locked: 0
-  - name: Boundaries
-    uniqueID: 2483697181
     locked: 0

@@ -28,7 +28,7 @@ public class ElevatorBehavior : MonoBehaviour
     {
         if(_rightElevator.position.y >= _elevatorFloor0)
         {
-            _rightElevator.velocity = new Vector2(0,0);
+            _rightElevator.velocity = new Vector2(0, 0);
             return;
         }
         
