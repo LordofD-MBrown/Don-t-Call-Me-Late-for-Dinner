@@ -1063,6 +1063,7 @@ GameObject:
   - component: {fileID: 1852055922}
   - component: {fileID: 1852055921}
   - component: {fileID: 1852055920}
+  - component: {fileID: 1852055925}
   m_Layer: 0
   m_Name: Son
   m_TagString: Untagged
@@ -1076,7 +1077,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1852055919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d6780df54d6b564686cefd6359741e9, type: 3}
   m_Name: 
@@ -1192,6 +1193,20 @@ Transform:
   m_Father: {fileID: 1021810935}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852055925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852055919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddc43bd1b455b04bb8bafba8b6083d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jumpForce: 5
+  gravity: 0
 --- !u!1 &2067786439
 GameObject:
   m_ObjectHideFlags: 0
