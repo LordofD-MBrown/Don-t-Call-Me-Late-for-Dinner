@@ -25,7 +25,7 @@ public class UIClockScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        hourText.SetText(5 - playerClass.getHours() + "");
-        minuteText.SetText(60 - playerClass.getMinutes() + "");
+        hourText.SetText((5 - playerClass.getHours()) + "");
+        minuteText.SetText((60 - playerClass.getMinutes()) + "");
 	}
 }
