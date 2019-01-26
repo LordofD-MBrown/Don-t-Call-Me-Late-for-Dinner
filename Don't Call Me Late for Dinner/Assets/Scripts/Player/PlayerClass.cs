@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerClass : MonoBehaviour
 {
-    public float dadHealth;
-    public float sonHealth;
-    public float momHealth;
+    public int dadHealth = 3;
+    public int sonHealth = 1;
+    public int momHealth = 2;
 
     private bool dadIsHome;
     private bool momIsHome;
@@ -16,15 +16,15 @@ public class PlayerClass : MonoBehaviour
 
     //Getters
     //===========================================
-    public float GetDadHealth()
+    public int GetDadHealth()
     {
         return dadHealth;
     }
-    public float GetMomHealth()
+    public int GetMomHealth()
     {
         return momHealth;
     }
-    public float GetSonHealth()
+    public int GetSonHealth()
     {
         return sonHealth;
     }
