@@ -12,6 +12,8 @@ TagManager:
   - Work
   - HorizontalCar
   - VerticalCar
+  - VerticalCarReset
+  - HorizontalCarReset
   layers:
   - Default
   - TransparentFX
