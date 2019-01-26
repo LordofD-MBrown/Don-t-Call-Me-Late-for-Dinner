@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Collision Map
   - Jump Map
+  - Home
+  - Work
+  - School
   layers:
   - Default
   - TransparentFX
