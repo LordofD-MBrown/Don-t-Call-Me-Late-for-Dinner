@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarMovement : MonoBehaviour {
 
@@ -13,8 +14,11 @@ public class CarMovement : MonoBehaviour {
 	{
 		if(player == null)
 			player = GameObject.Find("Player");
+		if(SceneManager.GetActiveScene().name == "Overworld")
+        {
+            pc = GameObject.Find("Player").GetComponent<PlayerClass>();
+        }
 		
-		pc = GameObject.Find("Player").GetComponent<PlayerClass>();
 	}
 	
 	// Update is called once per frame
