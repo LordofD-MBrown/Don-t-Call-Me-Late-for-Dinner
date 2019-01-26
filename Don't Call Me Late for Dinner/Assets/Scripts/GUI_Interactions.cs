@@ -8,6 +8,6 @@ public class GUI_Interactions : MonoBehaviour
 {
     public void StartButton()
     {
-        SceneManager.LoadScene("Avery - Test Scene");
+        SceneManager.LoadScene("School");
     }
 }
