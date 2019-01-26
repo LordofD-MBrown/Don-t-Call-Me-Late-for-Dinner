@@ -16,6 +16,7 @@ TagManager:
   - HorizontalCarReset
   - Coffee
   - Oven
+  - Waypoint
   layers:
   - Default
   - TransparentFX
