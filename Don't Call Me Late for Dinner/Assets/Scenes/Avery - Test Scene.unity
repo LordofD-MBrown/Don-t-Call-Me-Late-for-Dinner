@@ -112,6 +112,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &477712107
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +293,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2279124, y: 3.0100489}
   m_EdgeRadius: 0
+=======
+>>>>>>> master
 --- !u!1 &1165052450
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +393,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1552815981
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874482363963804, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c6c5edc0e32ff846852289da7fbde03, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1625510248
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +563,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD
 --- !u!1 &1816297947
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,3 +752,5 @@ Transform:
   m_Father: {fileID: 631917516}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> master
