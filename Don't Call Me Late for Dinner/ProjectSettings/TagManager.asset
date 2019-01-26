@@ -18,6 +18,7 @@ TagManager:
   - Oven
   - Lego
   - Ladder
+  - Walkables
   layers:
   - Default
   - TransparentFX
