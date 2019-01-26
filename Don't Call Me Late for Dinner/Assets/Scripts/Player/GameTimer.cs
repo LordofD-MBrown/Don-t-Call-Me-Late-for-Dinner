@@ -29,4 +29,14 @@ public class GameTimer : MonoBehaviour {
 		Debug.Log(hours);
 		Debug.Log(mins);
 	}
+
+    public float getHours()
+    {
+        return hours;
+    }
+
+    public float getMinutes()
+    {
+        return mins;
+    }
 }
