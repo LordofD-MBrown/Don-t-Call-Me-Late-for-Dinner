@@ -102,7 +102,7 @@ public class PlayerMovementBeta : MonoBehaviour
             DontDestroyOnLoad(player);            
             SceneManager.LoadScene("Overworld");
             player.transform.Translate(5f, 1.1f, 0f);
-
         }
+        
     }
 }
