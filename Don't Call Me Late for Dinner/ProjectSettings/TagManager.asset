@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collision Map
   - Jump Map
+  - Home
+  - Home Exit
   layers:
   - Default
   - TransparentFX

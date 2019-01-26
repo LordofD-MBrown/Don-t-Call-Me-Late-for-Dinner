@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
-public class WorkWorldMovementScript : MonoBehaviour
+public class PlayerMovementBeta : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 20f;
@@ -14,16 +15,15 @@ public class WorkWorldMovementScript : MonoBehaviour
     [SerializeField]
     private float _downRaycastDistance = 1.2f;
 
-
-
     public LayerMask GroundLayer;
     private bool _grounded = false;
     private Rigidbody2D _rigidBody2D;
+    GameObject player;
 
     // Use this for initialization
     void Start()
     {
-
+        player = GameObject.Find("Player");
     }
 
     void Awake()
@@ -70,8 +70,6 @@ public class WorkWorldMovementScript : MonoBehaviour
 
     }
 
-
-
     void Jump()
     {
         Debug.Log("Made it to jump();");
@@ -84,5 +82,16 @@ public class WorkWorldMovementScript : MonoBehaviour
         {
             _rigidBody2D.velocity = Vector2.up * _jumpForce;
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.name == "Door to Overworld")
+        {
+            Debug.Log(other.gameObject.name);
+            DontDestroyOnLoad(player);
+            SceneManager.LoadScene("Nathan - Test Scene");
+            player.transform.
     }
 }
