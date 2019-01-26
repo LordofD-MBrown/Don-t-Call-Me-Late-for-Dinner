@@ -63,7 +63,7 @@ public class PlayerMovementBeta : MonoBehaviour
     
 
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         Vector2 position = transform.position;
         var direction = Vector2.down;

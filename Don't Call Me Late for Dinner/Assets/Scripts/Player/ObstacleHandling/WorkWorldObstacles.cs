@@ -12,6 +12,9 @@ public class WorkWorldObstacles : MonoBehaviour
     public Vector3 startingPosition = new Vector3 (21.1f, 4.5f, -10.10769f);
     Vector3 dadStartingPosition = Vector3.zero;
 
+    float FallingMaxVelocity = -10.0f;
+    float LastFallingVelocity = 0.0f;
+
     // Use this for initialization
     void Awake()
     {
@@ -20,6 +23,30 @@ public class WorkWorldObstacles : MonoBehaviour
 
         player = GameObject.Find("Player");
         dad = GameObject.Find("Dad");
+    }
+
+    void Update()
+    {
+        var playerMovement = GetComponent<PlayerMovementBeta>();
+        var rigidBody = GetComponent<Rigidbody2D>();
+
+
+        if ( playerMovement.IsGrounded() && LastFallingVelocity < FallingMaxVelocity)
+        {
+            var playerClass = transform.parent.gameObject.GetComponent<PlayerClass>();
+            // decrement health
+            playerClass.SetDadHealth(playerClass.GetDadHealth() - 1);
+            // reset position
+            ResetWorkWorldStartPosition();
+            LastFallingVelocity = 0.0f;
+            rigidBody.velocity = new Vector2(0, 0);
+        }
+
+        else
+        {
+            LastFallingVelocity = rigidBody.velocity.y;
+        }
+
     }
 
     public void OnTriggerEnter2D(Collider2D other)
