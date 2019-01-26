@@ -17,6 +17,10 @@ public class PlayerTransitionScript : MonoBehaviour {
         momPlatform = GameObject.Find("Mom(Platform)");
         momTopDown = GameObject.Find("Mom(TopDown)");
         son = GameObject.Find("Son");
+        momPlatform.SetActive(true);
+        momTopDown.SetActive(false);
+        dad.SetActive(false);
+        son.SetActive(false);
     }
 	
 	// Update is called once per frame

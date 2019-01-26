@@ -56,7 +56,7 @@ public class PlayerMovementBeta : MonoBehaviour
 
         // Move Player
         transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.W))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             Jump();
 
     }
@@ -101,6 +101,13 @@ public class PlayerMovementBeta : MonoBehaviour
             DontDestroyOnLoad(player);            
             SceneManager.LoadScene("Overworld");
             player.transform.Translate(5f, 1f, 0f);
-        }     
+        }
+        if (other.gameObject.name == "Exit(To Overworld from Office)")
+        {
+            DontDestroyOnLoad(player);
+            SceneManager.LoadScene("Overworld");
+            player.transform.position = new Vector3(12.61f, -15.1f,-1f);
+        }
+
     }
 }

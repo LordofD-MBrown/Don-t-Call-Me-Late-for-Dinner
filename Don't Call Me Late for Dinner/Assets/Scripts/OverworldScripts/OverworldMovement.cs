@@ -39,7 +39,7 @@ public class OverworldMovement : MonoBehaviour
         {
             DontDestroyOnLoad(player);
             SceneManager.LoadScene("Workworld");
-            player.transform.Translate(21.51f, 5f, 0f);
+            player.transform.Translate(15.51f, 5f, 0f);
         }
     }
 }
