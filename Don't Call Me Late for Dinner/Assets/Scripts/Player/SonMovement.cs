@@ -112,7 +112,12 @@ public class SonMovement : MonoBehaviour {
             {
                 rb.velocity = Vector2.up * 0;
             }
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jumpCount = 0;
+                ropeClimb = false;
+                rb.gravityScale = 1.0f;
+            }
         }
         //if(!ropeClimb || Input.GetKeyUp(KeyCode.W))
         //{
