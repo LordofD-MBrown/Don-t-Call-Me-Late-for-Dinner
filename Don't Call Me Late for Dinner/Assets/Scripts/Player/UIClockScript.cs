@@ -12,6 +12,8 @@ public class UIClockScript : MonoBehaviour
     TextMeshProUGUI hourText;
     TextMeshProUGUI minuteText;
     GameTimer playerClass;
+    string hour;
+    string mins;
   
 	// Use this for initialization
 	void Start ()
@@ -25,7 +27,23 @@ public class UIClockScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        hourText.SetText((5 - playerClass.getHours()) + "");
-        minuteText.SetText((60 - playerClass.getMinutes()) + "");
-	}
+       if(playerClass.getHours() >= 4f)
+       {
+            hour = "12";
+       }
+       else if(playerClass.getHours() < 4f)
+       {
+            hour = (5 - playerClass.getHours()) + "";
+       }
+       hourText.SetText(hour);
+       if (playerClass.getMinutes()>= 60f)
+       {
+           hour = "00";
+       }
+       else if (playerClass.getMinutes() < 60f)
+       {
+           hour = (5 - playerClass.getMinutes()) + "";
+       }
+       hourText.SetText(hour);
+    }
 }

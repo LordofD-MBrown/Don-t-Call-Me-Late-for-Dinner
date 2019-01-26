@@ -1276,7 +1276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.77, y: 450}
+  m_AnchoredPosition: {x: -9.77, y: 453}
   m_SizeDelta: {x: 280, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204639937
@@ -1321,6 +1321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301883380}
+  - component: {fileID: 1301883381}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -1345,11 +1346,24 @@ RectTransform:
   m_Father: {fileID: 364686204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -494}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1301883381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301883379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3b7b960be073447bdc2e60d7145aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hourObject: {fileID: 537861709}
+  minuteObject: {fileID: 1072080642}
 --- !u!1 &1341984778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,9 +1985,9 @@ GameObject:
   - component: {fileID: 1852055923}
   - component: {fileID: 1852055922}
   - component: {fileID: 1852055921}
-  - component: {fileID: 1852055920}
   - component: {fileID: 1852055925}
   - component: {fileID: 1852055926}
+  - component: {fileID: 1852055920}
   m_Layer: 0
   m_Name: Son
   m_TagString: Player
@@ -1989,15 +2003,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1852055919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6780df54d6b564686cefd6359741e9, type: 3}
+  m_Script: {fileID: 11500000, guid: bddc43bd1b455b04bb8bafba8b6083d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 20
-  _jumpForce: 10
-  _downRaycastDistance: 1.2
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  speed: 0
+  jumpForce: 0
+  gravity: 0
 --- !u!50 &1852055921
 Rigidbody2D:
   serializedVersion: 4
