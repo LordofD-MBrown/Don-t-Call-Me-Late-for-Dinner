@@ -44,6 +44,11 @@ TagManager:
   - name: BackGround
     uniqueID: 930417779
     locked: 0
+<<<<<<< HEAD
   - name: Foreground
     uniqueID: 3808347375
+=======
+  - name: ForeGround
+    uniqueID: 3077531669
+>>>>>>> AH-Branch
     locked: 0
