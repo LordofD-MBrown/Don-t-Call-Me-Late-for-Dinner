@@ -15,6 +15,7 @@ TagManager:
   - VerticalCarReset
   - HorizontalCarReset
   - Coffee
+  - Oven
   layers:
   - Default
   - TransparentFX
