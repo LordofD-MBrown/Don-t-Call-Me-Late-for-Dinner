@@ -31,7 +31,7 @@ public class PlayerTransitionScript : MonoBehaviour {
 
     void PlayerSwitch()
     {
-        if (SceneManager.GetActiveScene().name == "Homeworld")
+        if (SceneManager.GetActiveScene().name == "HomeWorld")
         {
             momPlatform.SetActive(true);
             momTopDown.SetActive(false);
@@ -46,7 +46,7 @@ public class PlayerTransitionScript : MonoBehaviour {
             dad.SetActive(false);
             son.SetActive(false);
         }
-        else if (SceneManager.GetActiveScene().name == "Workworld")
+        else if (SceneManager.GetActiveScene().name == "WorkWorld")
         {
             momPlatform.SetActive(false);
             momTopDown.SetActive(false);

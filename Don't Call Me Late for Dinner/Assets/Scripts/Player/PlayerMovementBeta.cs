@@ -106,7 +106,7 @@ public class PlayerMovementBeta : MonoBehaviour
         {
             DontDestroyOnLoad(player);
             SceneManager.LoadScene("Overworld");
-            player.transform.position = new Vector3(12.61f, -15.1f,-1f);
+            player.transform.position = new Vector3(7.69f, -2.85f,-1f);
         }
 
     }

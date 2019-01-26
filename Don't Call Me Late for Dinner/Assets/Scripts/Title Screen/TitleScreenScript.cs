@@ -8,7 +8,7 @@ public class TitleScreenScript : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Homeworld");
+        SceneManager.LoadScene("HomeWorld");
     }
 
 }
