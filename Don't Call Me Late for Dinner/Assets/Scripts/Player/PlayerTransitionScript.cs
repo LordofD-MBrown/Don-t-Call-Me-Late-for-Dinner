@@ -53,6 +53,13 @@ public class PlayerTransitionScript : MonoBehaviour {
             dad.SetActive(true);
             son.SetActive(false);
         }
+        else if (SceneManager.GetActiveScene().name == "School")
+        {
+            momPlatform.SetActive(false);
+            momTopDown.SetActive(false);
+            dad.SetActive(false);
+            son.SetActive(true);
+        }
     }
 
    
