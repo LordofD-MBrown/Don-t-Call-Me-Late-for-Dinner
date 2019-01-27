@@ -11,6 +11,8 @@ TagManager:
   - OfficeSpawn
   - SchoolSpawn
   - HomeSpawn
+  - Ladder
+  - Walkables
   - HorizontalCar
   - VerticalCar
   - HorizontalCarReset
@@ -18,8 +20,11 @@ TagManager:
   - School
   - VerticalCarReset
   - Home
-  - Coworker
+  - Lego
+  - fhjn
+  - Exit
   - Waypoint
+  - Coworker
   layers:
   - Default
   - TransparentFX

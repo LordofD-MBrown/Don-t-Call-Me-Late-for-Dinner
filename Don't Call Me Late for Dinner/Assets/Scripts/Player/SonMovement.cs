@@ -11,6 +11,7 @@ public class SonMovement : MonoBehaviour {
     public float gravity;
     private bool ropeClimb = false;
     private int jumpCount = 0;
+    private Vector2 spawnPoint;
 
     private Rigidbody2D rb;
 
@@ -19,6 +20,7 @@ public class SonMovement : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnPoint = GameObject.FindGameObjectWithTag("fhjn").transform.position;
     }
 
     // Update is called once per frame
@@ -59,6 +61,12 @@ public class SonMovement : MonoBehaviour {
             ropeClimb = true;
             //}
         }
+
+        else if(other.gameObject.CompareTag("Lego"))
+        {
+            Debug.Log("DEATH");
+            transform.position = spawnPoint;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -66,7 +74,7 @@ public class SonMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Ladder"))
         {
             ropeClimb = false;
-            rb.gravityScale = 1.1f;
+            rb.gravityScale = 3f;
         }
     }
 
