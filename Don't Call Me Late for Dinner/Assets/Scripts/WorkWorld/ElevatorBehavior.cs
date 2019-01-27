@@ -4,9 +4,7 @@ public class ElevatorBehavior : MonoBehaviour
 {
     private Rigidbody2D elevatorRigidbody;
 
-    [SerializeField] private float _speed = 10;
-
-    [SerializeField] private const float _elevatorSpeed = 10f;
+    [SerializeField] private const float _elevatorSpeed = 5f;
 
     // Elevator Targets
     public Vector2 topFloorTarget;
