@@ -103,8 +103,8 @@ public class PlayerMovementBeta : MonoBehaviour
             SceneManager.LoadScene("Overworld");
 			
 			for (int i = 0; i < player.transform.childCount; i++)
-				if(GameObject.FindWithTag("HomeSpawn") != null)
-					player.transform.GetChild(i).position = GameObject.FindWithTag("HomeSpawn").transform.position;
+				if(GameObject.Find("HomeSpawnOW") != null)
+					player.transform.GetChild(i).position = GameObject.Find("HomeSpawnOW").transform.position;
 				else
 					Debug.Log("Didn't find home spawn point!");
         }
@@ -113,8 +113,8 @@ public class PlayerMovementBeta : MonoBehaviour
 			
             SceneManager.LoadScene("Overworld");
 			for (int i = 0; i < player.transform.childCount; i++)
-				if(GameObject.FindWithTag("OfficeSpawn") != null)
-					player.transform.GetChild(i).position = GameObject.FindWithTag("OfficeSpawn").transform.position;
+				if(GameObject.FindWithTag("OfficeSpawnOW") != null)
+					player.transform.GetChild(i).position = GameObject.Find("OfficeSpawnOW").transform.position;
 				else
 					Debug.Log("Didn't find office spawn point!");
         }
