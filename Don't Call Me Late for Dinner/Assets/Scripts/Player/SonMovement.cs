@@ -94,6 +94,16 @@ public class SonMovement : MonoBehaviour {
         //    rb.velocity = new Vector2(input * speed, rb.velocity.y);
         //}
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
+
+        // flip player
+        if (input > 0)
+        {
+            FlipSprite(this.gameObject, false);
+        }
+        else if (input < 0)
+        {
+            FlipSprite(this.gameObject, true);
+        }
     }
 
     //used to climb rope
@@ -154,6 +164,15 @@ public class SonMovement : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) && (grounded || ropeClimb))
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+
+    private void FlipSprite(GameObject gameObject, bool flipX)
+    {
+        if (null != gameObject)
+        {
+            SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+            sprite.flipX = flipX;
         }
     }
 }
