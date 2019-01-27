@@ -39,13 +39,16 @@ public class OverworldMovement : MonoBehaviour
         {
             DontDestroyOnLoad(player);
             SceneManager.LoadScene("WorkWorld");
-            player.transform.Translate(15.51f, 5f, 0f);
         }
         else if(other.gameObject.name == "School")
         {
             DontDestroyOnLoad(player);
             SceneManager.LoadScene("School");
-            player.transform.Translate(217f, 24f, 0f);
         }
+		else if(other.gameObject.tag == "Puddle")
+		{
+			player.GetComponent<PlayerClass>().time -= 5f;
+			other.gameObject.SetActive(false);
+		}
     }
 }

@@ -63,7 +63,7 @@ public class PlayerMovementBeta : MonoBehaviour
     
 
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         Vector2 position = transform.position;
         var direction = Vector2.down;
@@ -95,7 +95,6 @@ public class PlayerMovementBeta : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.name == "Door to Overworld(Home)")
         {
             DontDestroyOnLoad(player);            

@@ -5,9 +5,15 @@ using UnityEngine;
 public class TimerStarter : MonoBehaviour {
 
 	public GameTimer gt;
-	void Awake()
+    GameObject clock;
+    private void Start()
+    {
+        clock = GameObject.Find("Clock");
+        clock.SetActive(false);
+    }
+    void Awake()
 	{
-		gt = GameObject.Find("Player").GetComponent<GameTimer>();
+		gt = GameObject.Find("Player").GetComponent<GameTimer>();       
 	}
 	
 	public void OnCollisionEnter2D(Collision2D col)
@@ -18,6 +24,7 @@ public class TimerStarter : MonoBehaviour {
 			//prompt player, take confirmation from UI:
 			//if player says yes:
 				gt.timerStart = true;
+            clock.SetActive(true);
 		}
 	}
 }

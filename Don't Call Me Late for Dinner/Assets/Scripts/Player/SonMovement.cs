@@ -29,14 +29,13 @@ public class SonMovement : MonoBehaviour {
         moveVertical();
         if (grounded)
         {
-            Debug.Log("Grounded");
             jumpCount = 0;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground")
+        if (collision.gameObject.CompareTag("Walkables"))
         {
             grounded = true;
         }
@@ -44,7 +43,7 @@ public class SonMovement : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground")
+        if (collision.gameObject.CompareTag("Walkables"))
         {
             grounded = false;
         }
@@ -53,7 +52,7 @@ public class SonMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             //if (Input.GetKeyDown(KeyCode.W))
             //{
@@ -64,15 +63,16 @@ public class SonMovement : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             ropeClimb = false;
+            rb.gravityScale = 1.1f;
         }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             //rb.gravityScale = 0.0f;
         }
@@ -81,10 +81,11 @@ public class SonMovement : MonoBehaviour {
     private void moveLateral()
     {
         input = Input.GetAxisRaw("Horizontal");
-        if ((grounded || jumpCount > 0) && !ropeClimb)
-        {
-            rb.velocity = new Vector2(input * speed, rb.velocity.y);
-        }
+        //if ((grounded || jumpCount > 0) && !ropeClimb)
+        //{
+        //    rb.velocity = new Vector2(input * speed, rb.velocity.y);
+        //}
+        rb.velocity = new Vector2(input * speed, rb.velocity.y);
     }
 
     //used to climb rope
@@ -92,7 +93,6 @@ public class SonMovement : MonoBehaviour {
     {
         if (ropeClimb)
         {
-            Debug.Log("Here");
             if (Input.GetKeyDown(KeyCode.W))
             {
                 rb.velocity = Vector2.up * speed;
@@ -112,7 +112,12 @@ public class SonMovement : MonoBehaviour {
             {
                 rb.velocity = Vector2.up * 0;
             }
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jumpCount = 0;
+                ropeClimb = false;
+                rb.gravityScale = 1.0f;
+            }
         }
         //if(!ropeClimb || Input.GetKeyUp(KeyCode.W))
         //{
@@ -126,16 +131,21 @@ public class SonMovement : MonoBehaviour {
     private void jump()
     {
         Debug.Log("jumpCount: " + jumpCount);
-        if (jumpCount < 1 && Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Jumped");
-            rb.velocity = Vector2.up * jumpForce;
-            jumpCount++;
-        }
+        //if (jumpCount < 1 && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Debug.Log("Jumped");
+        //    rb.velocity = Vector2.up * jumpForce;
+        //    jumpCount++;
+        //}
 
-        if (jumpCount == 2)
+        //if (jumpCount == 2)
+        //{
+        //    jumpCount = 0;
+        //}
+
+        if(Input.GetKeyDown(KeyCode.Space) && (grounded || ropeClimb))
         {
-            jumpCount = 0;
+            rb.velocity = Vector2.up * jumpForce;
         }
     }
 }
