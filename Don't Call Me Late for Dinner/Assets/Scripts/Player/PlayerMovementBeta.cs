@@ -101,7 +101,6 @@ public class PlayerMovementBeta : MonoBehaviour
         {   
         
             SceneManager.LoadScene("Overworld");
-			
 			for (int i = 0; i < player.transform.childCount; i++)
 				if(GameObject.Find("HomeSpawnOW") != null)
 					player.transform.GetChild(i).position = GameObject.Find("HomeSpawnOW").transform.position;
@@ -113,7 +112,7 @@ public class PlayerMovementBeta : MonoBehaviour
 			
             SceneManager.LoadScene("Overworld");
 			for (int i = 0; i < player.transform.childCount; i++)
-				if(GameObject.FindWithTag("OfficeSpawnOW") != null)
+				if(GameObject.Find("OfficeSpawnOW") != null)
 					player.transform.GetChild(i).position = GameObject.Find("OfficeSpawnOW").transform.position;
 				else
 					Debug.Log("Didn't find office spawn point!");
