@@ -26,8 +26,7 @@ public class GameTimer : MonoBehaviour {
 			pc.time -= Time.deltaTime;
 		hours = Mathf.Floor(Mathf.Round(pc.time)/60f);
 		mins = Mathf.Round(pc.time)%60f; //
-		Debug.Log(hours);
-		Debug.Log(mins);
+
 	}
 
     public float getHours()

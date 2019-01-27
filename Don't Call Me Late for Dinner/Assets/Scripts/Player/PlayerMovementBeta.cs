@@ -106,6 +106,7 @@ public class PlayerMovementBeta : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Bumped into the trigger: " + gameObject.name);
         if (other.gameObject.name == "Door to Overworld(Home)")
         {   
         
@@ -126,7 +127,16 @@ public class PlayerMovementBeta : MonoBehaviour
 				else
 					Debug.Log("Didn't find office spawn point!");
         }
-
+        if (other.gameObject.name == "You win school")
+        {
+            Debug.Log("Attempting to leave the school");
+            SceneManager.LoadScene("Overworld");
+            for (int i = 0; i < player.transform.childCount; i++)
+                if (GameObject.Find("SchoolSpawnOW") != null)
+                    player.transform.GetChild(i).position = GameObject.Find("SchoolSpawnOW").transform.position;
+                else
+                    Debug.Log("Didn't find the School Spawn Point");
+        }
     }
 
     private void FlipSprite(GameObject gameObject, bool flipX)
