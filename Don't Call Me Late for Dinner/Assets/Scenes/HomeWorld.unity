@@ -1742,8 +1742,6 @@ MonoBehaviour:
   HomeSpawn: {fileID: 749761664}
   OfficeSpawn: {fileID: 556089245}
   SchoolSpawn: {fileID: 1453247792}
-  OfficeWorldSpawn: {fileID: 0}
-  SchoolWorldSpawn: {fileID: 0}
 --- !u!114 &1021810940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,6 +3210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc43bd1b455b04bb8bafba8b6083d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1021810934}
   speed: 8
   jumpForce: 10
   gravity: 0
