@@ -48,7 +48,7 @@ public class WorkWorldObstacles : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         // Collides with Spilled Coffee
-        if (other.gameObject.tag == "Coffee")
+        if (other.gameObject.tag == "Coffee" || other.gameObject.tag == "Coworker")
         {
             Die();
         }

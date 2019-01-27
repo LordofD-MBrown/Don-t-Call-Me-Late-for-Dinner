@@ -11,6 +11,15 @@ TagManager:
   - OfficeSpawn
   - SchoolSpawn
   - HomeSpawn
+  - HorizontalCar
+  - VerticalCar
+  - HorizontalCarReset
+  - Work
+  - School
+  - VerticalCarReset
+  - Home
+  - Coworker
+  - Waypoint
   layers:
   - Default
   - TransparentFX
@@ -53,6 +62,7 @@ TagManager:
     locked: 0
   - name: Grass
     uniqueID: 930417779
+    locked: 0
   - name: Foreground
     uniqueID: 1524495871
     locked: 0
