@@ -61,9 +61,18 @@ public class PlayerMovementBeta : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             Jump();
 
-    }
-    
+        // Sprite Direction
+        if (horizontalInput > 0)
+        {
+            FlipSprite(momPlatform, false);
+            FlipSprite(dad, false);
+        } else if(horizontalInput < 0)
+        {
+            FlipSprite(momPlatform, true);
+            FlipSprite(dad, true);
+        }
 
+    }
 
     public bool IsGrounded()
     {
@@ -118,5 +127,14 @@ public class PlayerMovementBeta : MonoBehaviour
 					Debug.Log("Didn't find office spawn point!");
         }
 
+    }
+
+    private void FlipSprite(GameObject gameObject, bool flipX)
+    {
+        if(null != gameObject)
+        {
+            SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+            sprite.flipX = flipX;
+        }
     }
 }
