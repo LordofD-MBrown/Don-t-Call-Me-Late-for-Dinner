@@ -17,6 +17,9 @@ TagManager:
   - Coffee
   - Oven
   - Puddle
+  - OfficeSpawn
+  - SchoolSpawn
+  - HomeSpawn
   layers:
   - Default
   - TransparentFX
@@ -54,8 +57,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
+  - name: Sidewalk
+    uniqueID: 343073569
+    locked: 0
+  - name: Grass
     uniqueID: 930417779
+    locked: 0
+  - name: Buildings
+    uniqueID: 43091699
     locked: 0
   - name: Player
     uniqueID: 2867086571

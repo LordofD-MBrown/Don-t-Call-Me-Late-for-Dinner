@@ -52,7 +52,7 @@ public class CarMovement : MonoBehaviour {
 		{
 			if(this.gameObject.tag == "VerticalCar")
 			{
-				player.transform.Translate(-2.5f, 0f, 0f);
+				player.transform.Translate(2.5f, 0f, 0f);
 				pc.time -= 10;
 				Debug.Log("Time subtracted");
 			}
