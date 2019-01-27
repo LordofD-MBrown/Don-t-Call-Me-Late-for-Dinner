@@ -910,7 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 20
-  _jumpForce: 10
+  _jumpForce: 15
   _downRaycastDistance: 1.2
   GroundLayer:
     serializedVersion: 2
