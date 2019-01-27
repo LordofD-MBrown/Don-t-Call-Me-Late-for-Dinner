@@ -37,7 +37,9 @@ public class PuddleSpawn : MonoBehaviour {
 			GameObject instance = Instantiate(MudSprite) as GameObject;
 			instance.transform.position = new Vector3(puddle[i].x, puddle[i].y, 0f);
 			instance.AddComponent<BoxCollider2D>();
+			instance.GetComponent<BoxCollider2D>().isTrigger = true;
 			instance.transform.SetParent(GameObject.Find("mudSpawner").transform);
+			instance.gameObject.tag = "Puddle";
 		}
 	}
 }

@@ -45,5 +45,10 @@ public class OverworldMovement : MonoBehaviour
             DontDestroyOnLoad(player);
             SceneManager.LoadScene("School");
         }
+		else if(other.gameObject.tag == "Puddle")
+		{
+			player.GetComponent<PlayerClass>().time -= 5f;
+			other.gameObject.SetActive(false);
+		}
     }
 }
