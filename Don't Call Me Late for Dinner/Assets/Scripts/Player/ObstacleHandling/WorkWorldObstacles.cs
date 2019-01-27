@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +12,7 @@ public class WorkWorldObstacles : MonoBehaviour
     public Vector3 startingPosition = new Vector3 (21.1f, 4.5f, -10.10769f);
     Vector3 dadStartingPosition = Vector3.zero;
     Rigidbody2D rigidBody;
-    float FallingMaxVelocity = -10.0f;
+    float FallingMaxVelocity = -30.0f;
     float LastFallingVelocity = 0.0f;
 
     // Use this for initialization
