@@ -8,12 +8,16 @@ public class DontDestroyOnLoad : MonoBehaviour {
 	public GameObject HomeSpawn;
 	public GameObject OfficeSpawn;
 	public GameObject SchoolSpawn;
+	public GameObject OfficeWorldSpawn;
+	public GameObject SchoolWorldSpawn;
 	// Use this for initialization
 	void Awake () {
 		DontDestroyOnLoad(player);
 		DontDestroyOnLoad(HomeSpawn);
 		DontDestroyOnLoad(OfficeSpawn);
 		DontDestroyOnLoad(SchoolSpawn);
+		DontDestroyOnLoad(OfficeWorldSpawn);
+		DontDestroyOnLoad(SchoolWorldSpawn);
 	}
 	
 	// Update is called once per frame
