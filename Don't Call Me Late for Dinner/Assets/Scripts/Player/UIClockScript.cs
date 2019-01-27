@@ -33,17 +33,31 @@ public class UIClockScript : MonoBehaviour
        }
        else if(playerClass.getHours() < 4f)
        {
-            hour = (5 - playerClass.getHours()) + "";
+            hour = (4 - playerClass.getHours()) + "";
        }
        hourText.SetText(hour);
-       if (playerClass.getMinutes()>= 60f)
+       if (playerClass.getMinutes() >= 60f)
        {
-           hour = "00";
+           mins = "00";
        }
        else if (playerClass.getMinutes() < 60f)
        {
-           hour = (5 - playerClass.getMinutes()) + "";
+            if (playerClass.getMinutes() > 50)
+            {
+                mins =  "0" + (60 - playerClass.getMinutes()) + "";
+            }
+            else
+            {
+                mins = (60 - playerClass.getMinutes()) + "";
+            }   
        }
-       hourText.SetText(hour);
+       if(mins == "60")
+        {
+            minuteText.SetText("00");
+        }
+        else
+        {
+            minuteText.SetText(mins);
+        }     
     }
 }
