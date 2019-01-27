@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SonMovement : MonoBehaviour {
+public class SonMovement : MonoBehaviour
+{
 
+    public GameObject player;
     public float speed;
     public float jumpForce;
     private float input;
@@ -62,11 +65,22 @@ public class SonMovement : MonoBehaviour {
             //}
         }
 
-        else if(other.gameObject.CompareTag("Lego"))
+        else if (other.gameObject.CompareTag("Lego"))
         {
             Debug.Log("DEATH");
             transform.position = spawnPoint;
         }
+        if (other.gameObject.name == "You win school")
+        {
+            Debug.Log("Attempting to leave the school");
+            SceneManager.LoadScene("Overworld");
+            for (int i = 0; i < player.transform.childCount; i++)
+                if (GameObject.Find("SchoolSpawnOW") != null)
+                    player.transform.GetChild(i).position = GameObject.Find("SchoolSpawnOW").transform.position;
+                else
+                    Debug.Log("Didn't find the School Spawn Point");
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -76,6 +90,7 @@ public class SonMovement : MonoBehaviour {
             ropeClimb = false;
             rb.gravityScale = 3f;
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -84,6 +99,7 @@ public class SonMovement : MonoBehaviour {
         {
             //rb.gravityScale = 0.0f;
         }
+
     }
 
     private void moveLateral()
@@ -94,6 +110,15 @@ public class SonMovement : MonoBehaviour {
         //    rb.velocity = new Vector2(input * speed, rb.velocity.y);
         //}
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
+
+        if (input > 0)
+        {
+            FlipSprite(this.gameObject, false);
+        }
+        else if (input < 0)
+        {
+            FlipSprite(this.gameObject, true);
+        }
     }
 
     //used to climb rope
@@ -151,9 +176,17 @@ public class SonMovement : MonoBehaviour {
         //    jumpCount = 0;
         //}
 
-        if(Input.GetKeyDown(KeyCode.Space) && (grounded || ropeClimb))
+        if (Input.GetKeyDown(KeyCode.Space) && (grounded || ropeClimb))
         {
             rb.velocity = Vector2.up * jumpForce;
+        }
+    }
+    private void FlipSprite(GameObject gameObject, bool flipX)
+    {
+        if (null != gameObject)
+        {
+            SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+            sprite.flipX = flipX;
         }
     }
 }
