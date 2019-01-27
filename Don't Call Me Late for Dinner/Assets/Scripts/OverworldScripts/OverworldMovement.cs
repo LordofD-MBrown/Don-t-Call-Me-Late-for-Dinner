@@ -10,14 +10,11 @@ public class OverworldMovement : MonoBehaviour
 	public float gravity; 
 	private Rigidbody2D rb;
     GameObject player;
-    private Vector2 spawnPoint;
 	// Use this for initialization 
 	void Start () 
 	{
         player = GameObject.Find("Player");
-		rb = GetComponent<Rigidbody2D>();
-        spawnPoint = GameObject.FindGameObjectWithTag("fhjn").transform.position;
-        
+		rb = GetComponent<Rigidbody2D>(); 
 	}
 // Update is called once per frame 
 	void LateUpdate () 
@@ -38,25 +35,12 @@ public class OverworldMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        SceneManager.LoadScene("WorkWorld");
+        
         if (other.gameObject.tag == "Work")
-        {
-            for (int i = 0; i < player.transform.childCount; i++)
-				if(GameObject.Find("InOfficeSpawn") != null)
-					player.transform.GetChild(i).position = GameObject.Find("InOfficeSpawn").transform.position;
-				else
-					Debug.Log("Didn't find office spawn point!");
-        }
-        else if(other.gameObject.tag == "School")
-        {
-            SceneManager.LoadScene("School");
-			for (int i = 0; i < player.transform.childCount; i++)
-				if(GameObject.Find("InSchoolSpawn") != null)
-					player.transform.GetChild(i).position = GameObject.Find("InSchoolSpawn").transform.position;
-				else
-					Debug.Log("Didn't find office spawn point!");
-        }
-		else if(other.gameObject.tag == "Puddle")
+			SceneManager.LoadScene("WorkWorld");
+        if(other.gameObject.tag == "School")
+			SceneManager.LoadScene("School");
+		if(other.gameObject.tag == "Puddle")
 		{
 			player.GetComponent<PlayerClass>().time -= 5f;
 			other.gameObject.SetActive(false);
