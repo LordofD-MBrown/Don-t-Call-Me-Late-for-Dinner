@@ -10,11 +10,14 @@ public class OverworldMovement : MonoBehaviour
 	public float gravity; 
 	private Rigidbody2D rb;
     GameObject player;
+    private Vector2 spawnPoint;
 	// Use this for initialization 
 	void Start () 
 	{
         player = GameObject.Find("Player");
-		rb = GetComponent<Rigidbody2D>(); 
+		rb = GetComponent<Rigidbody2D>();
+        spawnPoint = GameObject.FindGameObjectWithTag("fhjn").transform.position;
+        
 	}
 // Update is called once per frame 
 	void LateUpdate () 
