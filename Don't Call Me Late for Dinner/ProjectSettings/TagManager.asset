@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Oven
   - Coffee
-  - Work_ElevatorLeft
-  - Work_ElevatorRight
+  - WorkElevator
   layers:
   - Default
   - TransparentFX

@@ -2,27 +2,19 @@
 
 public class ElevatorBehavior : MonoBehaviour
 {
-    private Rigidbody2D _leftElevator;
-    private Rigidbody2D _rightElevator;
+    private Rigidbody2D elevatorRigidbody;
 
     [SerializeField] private float _speed = 10;
 
     [SerializeField] private const float _elevatorSpeed = 10f;
 
-    // Right Elevator Floors
-    private Vector2 _rightElevatorFloor0 = new Vector2(-6.1f, -0.5f);
-    private Vector2 _rightElevatorFloor1 = new Vector2(-6.1f, -59.4f);
-    private Vector2 _rightElevatorFloor2 = new Vector2(-6.1f, -59.4f);
-    private Vector2 _rightElevatorFloor3 = new Vector2(-6.1f, -59.4f);
+    // Elevator Targets
+    public Vector2 topFloorTarget;
+    public Vector2 bottomFloorTarget;
 
-    // Left Elevator Floors
-    private Vector2 _leftElevatorFloor0 = new Vector2(-37.3f, -0.5f);
-    private Vector2 _leftElevatorFloor3 = new Vector2(-37.3f, -54.5f);
-
-    private Vector2 _rightCurrentFloor;
-    private Vector2 _leftCurrentFloor;
-    private bool _rightElevatorGoingUp;
-    private bool _leftElevatorGoingUp;
+    // is elevator going up
+    private bool elevatorGoingUp;
+    private int elevatorWaitTimeRemaining;
 
     //private readonly Vector2 _testVector2 = new Vector2(0, 0.44f);
 
@@ -33,57 +25,64 @@ public class ElevatorBehavior : MonoBehaviour
     private void Start()
     {
         // Grab Elevator Game Objects
-        var leftElevatorGameObject = GameObject.FindGameObjectWithTag("Work_ElevatorLeft");
-        var rightElevatorGameObject = GameObject.FindGameObjectWithTag("Work_ElevatorRight");
+        GameObject elevatorGameObject = this.gameObject;
 
         // Create right Elevator Floors 
-        _rightCurrentFloor = _rightElevatorFloor0;
-        _rightElevatorGoingUp = true;
-        _leftCurrentFloor = _rightElevatorFloor3;
-        _leftElevatorGoingUp = true;
+        elevatorGoingUp = true;
+        elevatorWaitTimeRemaining = 0;
 
         // Grab Elevator Rigid bodies
-        _leftElevator = leftElevatorGameObject.GetComponent<Rigidbody2D>();
-        _rightElevator = rightElevatorGameObject.GetComponent<Rigidbody2D>();
+        elevatorRigidbody = elevatorGameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-
-        var leftElevatorGameObject = GameObject.FindGameObjectWithTag("Work_ElevatorLeft");
-        var leftElevatorCollider = leftElevatorGameObject.GetComponent<Collider2D>();
-
-
-        var rightElevatorGameObject = GameObject.FindGameObjectWithTag("Work_ElevatorRight");
-        Debug.Log("PositionX: " + rightElevatorGameObject.transform.position.x);
-
-        handleRightElevator2();
+        // handle elevator movement
+        HandleElevatorMovement(elevatorRigidbody, topFloorTarget, bottomFloorTarget, ref elevatorGoingUp, ref elevatorWaitTimeRemaining);
     }
 
-    void handleRightElevator2()
+    void HandleElevatorMovement(Rigidbody2D elevatorRigidBody, Vector2 targetTopFloor, Vector2 targetBottomFloor, ref bool goingUp, ref int elevatorWaitTimeRemaining)
     {
-        if (_rightElevatorGoingUp && Vector2.Distance(_rightElevatorFloor0, _rightElevator.position) > .00000001f)
+        // if the elevator is moving
+        if (elevatorWaitTimeRemaining == 0)
         {
-            var newPosition = Vector2.MoveTowards(_rightElevator.position, _rightElevatorFloor0,
-                _elevatorSpeed * Time.deltaTime);
+            // flip elevator direction if elevator has reached the floor
+            if (goingUp && Vector2.Distance(targetTopFloor, elevatorRigidBody.position) <= .00000001f)
+            {
+                goingUp = false;
+                elevatorWaitTimeRemaining = 50;
+            }
+            else if (!goingUp && Vector2.Distance(targetBottomFloor, elevatorRigidBody.position) <= .00000001f)
+            {
+                goingUp = true;
+                elevatorWaitTimeRemaining = 50;
+            }
 
-            _rightElevator.MovePosition(newPosition);
+
+            // move elevator up
+            if (goingUp && Vector2.Distance(targetTopFloor, elevatorRigidBody.position) > .00000001f)
+            {
+                var newPosition = Vector2.MoveTowards(elevatorRigidBody.position, targetTopFloor,
+                    _elevatorSpeed * Time.deltaTime);
+
+                elevatorRigidBody.MovePosition(newPosition);
+            }
+
+            // move elevator down
+            if (!goingUp && Vector2.Distance(targetBottomFloor, elevatorRigidBody.position) > .00000001f)
+            {
+                var newPosition = Vector2.MoveTowards(elevatorRigidBody.position, targetBottomFloor,
+                    _elevatorSpeed * Time.deltaTime);
+
+                elevatorRigidBody.MovePosition(newPosition);
+            }
         }
+        // if the elevator is waiting
         else
         {
-            _rightElevatorGoingUp = false;
-        }
-
-        if (!_rightElevatorGoingUp && Vector2.Distance(_rightElevatorFloor3, _rightElevator.position) > .00000001f)
-        {
-            var newPosition = Vector2.MoveTowards(_rightElevator.position, _rightElevatorFloor3,
-                _elevatorSpeed * Time.deltaTime);
-
-            _rightElevator.MovePosition(newPosition);
-        } else
-        {
-            _rightElevatorGoingUp = true;
+            // decrement wait time
+            elevatorWaitTimeRemaining--;
         }
     }
 }
