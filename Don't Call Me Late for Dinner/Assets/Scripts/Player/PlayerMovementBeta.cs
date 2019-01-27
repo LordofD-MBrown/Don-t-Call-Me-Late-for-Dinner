@@ -18,6 +18,7 @@ public class PlayerMovementBeta : MonoBehaviour
     public LayerMask GroundLayer;
     private bool _grounded = false;
     private Rigidbody2D _rigidBody2D;
+	
 
     GameObject player;
     GameObject dad;
@@ -37,6 +38,7 @@ public class PlayerMovementBeta : MonoBehaviour
 
     void Awake()
     {
+		
         _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -96,16 +98,25 @@ public class PlayerMovementBeta : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Door to Overworld(Home)")
-        {
-            DontDestroyOnLoad(player);            
+        {   
+        
             SceneManager.LoadScene("Overworld");
-            player.transform.Translate(5f, 1f, 0f);
+			
+			for (int i = 0; i < player.transform.childCount; i++)
+				if(GameObject.FindWithTag("HomeSpawn") != null)
+					player.transform.GetChild(i).position = GameObject.FindWithTag("HomeSpawn").transform.position;
+				else
+					Debug.Log("Didn't find home spawn point!");
         }
         if (other.gameObject.name == "Exit(To Overworld from Office)")
         {
-            DontDestroyOnLoad(player);
+			
             SceneManager.LoadScene("Overworld");
-            player.transform.position = new Vector3(7.69f, -2.85f,-1f);
+			for (int i = 0; i < player.transform.childCount; i++)
+				if(GameObject.FindWithTag("OfficeSpawn") != null)
+					player.transform.GetChild(i).position = GameObject.FindWithTag("OfficeSpawn").transform.position;
+				else
+					Debug.Log("Didn't find office spawn point!");
         }
 
     }
