@@ -9,6 +9,7 @@ public class PlayerTransitionScript : MonoBehaviour {
     GameObject momPlatform;
     GameObject momTopDown;
     GameObject son;
+    GameObject endMenu;
 
 	// Use this for initialization
 	void Start ()
@@ -17,6 +18,7 @@ public class PlayerTransitionScript : MonoBehaviour {
         momPlatform = GameObject.Find("Mom(Platform)");
         momTopDown = GameObject.Find("Mom(TopDown)");
         son = GameObject.Find("Son");
+        endMenu = GameObject.Find("End Screen");
         momPlatform.SetActive(true);
         momTopDown.SetActive(false);
         dad.SetActive(false);
@@ -31,6 +33,7 @@ public class PlayerTransitionScript : MonoBehaviour {
 
     void PlayerSwitch()
     {
+       
         Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "HomeWorld")
         {
@@ -38,7 +41,7 @@ public class PlayerTransitionScript : MonoBehaviour {
             momTopDown.SetActive(false);
             dad.SetActive(false);
             son.SetActive(false);
-
+            endMenu.SetActive(false);
         }
         else if (SceneManager.GetActiveScene().name == "Overworld")
         {
@@ -61,6 +64,10 @@ public class PlayerTransitionScript : MonoBehaviour {
             momTopDown.SetActive(false);
             dad.SetActive(false);
             son.SetActive(true);
+        }
+        else
+        {
+            endMenu.SetActive(true);
         }
     }
 

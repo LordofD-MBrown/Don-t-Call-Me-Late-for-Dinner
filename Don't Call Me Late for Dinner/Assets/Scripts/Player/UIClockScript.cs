@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIClockScript : MonoBehaviour
@@ -33,9 +34,8 @@ public class UIClockScript : MonoBehaviour
        }
        else if(playerClass.getHours() < 4f)
        {
-            hour = (4 - playerClass.getHours()) + "";
-       }
-       hourText.SetText(hour);
+            hour = "0" + (4 - playerClass.getHours()) + "";
+       }       
        if (playerClass.getMinutes() >= 60f)
        {
            mins = "00";
@@ -50,14 +50,26 @@ public class UIClockScript : MonoBehaviour
             {
                 mins = (60 - playerClass.getMinutes()) + "";
             }   
-       }
+       }      
        if(mins == "60")
         {
-            minuteText.SetText("00");
+            mins = "00";
+            minuteText.SetText(mins);
+        }
+        if (mins == "00")
+        {
+            hourText.SetText(((4 - playerClass.getHours()) + 1) + "");
         }
         else
         {
+            hourText.SetText(hour);
             minuteText.SetText(mins);
-        }     
+        }
+        
+        if(hourText.text == "05")
+        {
+            DontDestroyOnLoad(gameObject);
+            SceneManager.LoadScene("End Screen");
+        }
     }
 }
