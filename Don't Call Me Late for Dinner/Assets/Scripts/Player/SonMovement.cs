@@ -52,7 +52,7 @@ public class SonMovement : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             //if (Input.GetKeyDown(KeyCode.W))
             //{
@@ -63,7 +63,7 @@ public class SonMovement : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             ropeClimb = false;
             rb.gravityScale = 1.1f;
@@ -72,7 +72,7 @@ public class SonMovement : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.name == "Rope")
+        if (other.gameObject.CompareTag("Ladder"))
         {
             //rb.gravityScale = 0.0f;
         }
