@@ -6,10 +6,15 @@ public class TimerStarter : MonoBehaviour {
 
 	public GameTimer gt;
     GameObject clock;
+    GameObject doorToOutside;
+    BoxCollider2D door;
     private void Start()
     {
         clock = GameObject.Find("Clock");
         clock.SetActive(false);
+        doorToOutside = GameObject.Find("Door to Overworld(Home)");
+        door = doorToOutside.GetComponent<BoxCollider2D>();
+        door.isTrigger = false;
     }
     void Awake()
 	{
@@ -25,6 +30,7 @@ public class TimerStarter : MonoBehaviour {
 			//if player says yes:
 				gt.timerStart = true;
             clock.SetActive(true);
-		}
+            door.isTrigger = true;
+        }
 	}
 }
